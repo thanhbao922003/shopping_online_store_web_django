@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+<<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block register %}
+        <div class="container p-0">
+            <div class="card px-4">
+                <p class="h8 py-3">Thanh Toán</p>
+                <div class="row gx-3">
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">Person Name</p>
+                            <input class="form-control mb-3" type="text" placeholder="Name" value="Barry Allen">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">Card Number</p>
+                            <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">Expiry</p>
+                            <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">CVV/CVC</p>
+                            <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <a href="{% url 'payment_success' %}" class="btn btn-primary mb-3">
+                            <span class="ps-3">Pay {{ order.get_cart_total|floatformat|intcomma }} VNĐ</span>
+                            <span class="fas fa-arrow-right"></span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endblock register%}
+    </body>
+</html>
